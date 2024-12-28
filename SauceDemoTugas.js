@@ -29,9 +29,9 @@ async function SauceDemoTugas() {
 
         //Menambahkan barang ke dalam keranjang
         console.log("Item successfully added to cart");
-        await driver.findElement(By.id('add-to-cart-sauce-labs-onesie')).click();
+        await driver.findElement(By.id('add-to-cart-sauce-labs-backpack')).click();
 
-        //Memastikan berang berhasil ditambahkan ke dalam keranjang
+        //Memastikan barang berhasil ditambahkan ke dalam keranjang
         console.log("Item in the cart match those added");
         let cartBadge = await driver.findElement(By.className('shopping_cart_badge')).getText();
         assert.strictEqual(cartBadge, '1', 'Item was not added to the cart successfully');
