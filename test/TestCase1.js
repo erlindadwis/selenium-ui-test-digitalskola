@@ -15,7 +15,7 @@ if(!fs.existsSync(screenshotDir)){
     fs.mkdirSync(screenshotDir, {recursive: true});
 }
 
-describe('TestCase1 [login] #Regression #Smoke', function () {
+describe('TestCase1', function () {
     this.timeout(40000);
     let driver;
 
@@ -47,10 +47,10 @@ describe('TestCase1 [login] #Regression #Smoke', function () {
         await loginPage.login(username, password);
     });
 
-    //Assestion atau validasi
-    it('Login successfully and verify dahsboard', async function (){
-        const dahsboardPage = new DashboardPage(driver);
-        const title = await dahsboardPage.isOnDashboard();
+    //Assertion atau validasi
+    it('Login successfully and verify dashboard', async function (){
+        const dashboardPage = new DashboardPage(driver);
+        const title = await dashboardPage.isOnDashboard();
         assert.strictEqual(title, 'Products', 'Expected dashboard title to be Products');
  
     });

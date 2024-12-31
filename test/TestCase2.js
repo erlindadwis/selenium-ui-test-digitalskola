@@ -19,7 +19,7 @@ describe('TestCase2', function () {
     beforeEach(async function (){
         const loginPage = new LoginPage(driver);
         await loginPage.navigate();
-        await loginPage.login('haha', 'hohoyhoy');
+        await loginPage.login('haha', 'hihi');
     });
 
     //Assestion atau validasi

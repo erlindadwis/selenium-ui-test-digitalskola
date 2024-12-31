@@ -21,13 +21,13 @@ class LoginPage {
 
     async getErrorMessage() {
         try {
-            const errorElement =  await this.driver.findElement(this.errorMessage);
-            return await errorElement.getText();
-        } catch (err) {
-            return null; //Tidak ada message
+            const errorElement = await this.driver.findElement({ css: '.error-message-container.error' });
+            return await errorElement.getText(); // Ambil teks pesan error
+        } catch (error) {
+            return null; // Jika elemen tidak ditemukan, kembalikan null
         }
     }
-
+    
 };
 
 module.exports = LoginPage;
