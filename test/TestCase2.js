@@ -1,7 +1,10 @@
 const { Builder } = require('selenium-webdriver');
-const LoginPage = require('./WebComponent/LoginPage');
-const DashboardPage = require('./WebComponent/DashboardPage');
+const LoginPage = require('../WebComponent/LoginPage');
+const DashboardPage = require('../WebComponent/DashboardPage');
 const assert = require('assert');
+require('dotenv').config();
+
+const baseUrl = process.env.BASE_URL;
 
 describe('TestCase2', function () {
     this.timeout(40000);
@@ -16,7 +19,7 @@ describe('TestCase2', function () {
     beforeEach(async function (){
         const loginPage = new LoginPage(driver);
         await loginPage.navigate();
-        await loginPage.login('haha', 'hohoyhoy');
+        await loginPage.login('haha', 'hihi');
     });
 
     //Assestion atau validasi

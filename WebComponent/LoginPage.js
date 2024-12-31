@@ -4,13 +4,13 @@ class LoginPage {
     constructor(driver) {
         this.driver = driver;
         this.usernameInput = By.id('user-name');
-        this.passwordInput = By.css('input[placeholder="Password"');
+        this.passwordInput = By.css('input[placeholder="Password"]');
         this.loginButton = By.xpath("//input[@id='login-button']");
         this.errorMessage = By.css('.error-message-container');
     }
 
     async navigate(){
-        await this.driver.get("https://www.saucedemo.com/");
+        await this.driver.get(process.env.BASE_URL);
     }
     
     async login(username, password){
@@ -21,13 +21,13 @@ class LoginPage {
 
     async getErrorMessage() {
         try {
-            const errorElement =  await this.driver.findElement(this.errorMessage);
-            return await errorElement.getText();
-        } catch (err) {
-            return null; //Tidak ada message
+            const errorElement = await this.driver.findElement({ css: '.error-message-container.error' });
+            return await errorElement.getText(); // Ambil teks pesan error
+        } catch (error) {
+            return null; // Jika elemen tidak ditemukan, kembalikan null
         }
     }
-
+    
 };
 
 module.exports = LoginPage;

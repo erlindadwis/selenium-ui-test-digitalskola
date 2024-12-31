@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "dotenv": "^16.4.7",
     "selenium-webdriver": "^4.27.0"
+  },
+  "scripts": {
+    "test": "mocha --parallel --timeout 50000",
+    "test-regression": "mocha --grep '#Regression'",
+    "test-login": "mocha --grep '[login]'",
+    "test-smoke": "mocha --grep '#Smoke'"
   }
 }
